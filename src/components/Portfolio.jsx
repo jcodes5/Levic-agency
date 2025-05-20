@@ -5,40 +5,50 @@ import Lottie from "lottie-react";
 import desktopAnimation from "../assets/hero-animation.json";
 import mobileIllustration from "../assets/services.json";
 
+//Images Import
+import EACO from "../assets/EACO.jpg";
+import gaius from "../assets/gaius.jpg";
+import scentivityy from "../assets/scentivityy.jpg";
+import CPRDS from "../assets/CPRDS.jpg";
+import Kib from "../assets/Kib.jpg";
+import rescue from "../assets/rescue.jpg";
+import Nera from "../assets/Nera-hotel.jpg";
+import kesug from "../assets/kesug.jpg";
+
 const projects = [
   {
-    title: "E-commerce Website",
-    image: "/portfolio/ecommerce.jpg",
+    title: "Logo design",
+    image: EACO,
     description: "Conversion-optimized and mobile-first shopping experience.",
   },
   {
-    title: "Brand Landing Page",
-    image: "/portfolio/brand.jpg",
+    title: "Logo design",
+    image: gaius,
     description: "Sleek branding with strong call-to-action focus.",
   },
   {
-    title: "Agency Showcase",
-    image: "/portfolio/agency.jpg",
+    title: "Logo design",
+    image: kesug,
     description: "Creative portfolio for agency visibility and reach.",
   },
   {
-    title: "SaaS Dashboard",
-    image: "/portfolio/dashboard.jpg",
+    title: "Logo design",
+    image: CPRDS,
     description: "Scalable SaaS platform with analytics and user control.",
   },
   {
-    title: "Event Microsite",
-    image: "/portfolio/event.jpg",
+    title: "Logo design",
+    image: Kib,
     description: "Interactive single-page site to showcase events.",
   },
   {
-    title: "Mobile App Landing",
-    image: "/portfolio/mobile.jpg",
+    title: "Logo design",
+    image: rescue,
     description: "Smooth scrolling UX with product-focused storytelling.",
   },
 ];
 
-export default function Portfolio() {
+const Portfolio = () => {
   const [modalData, setModalData] = useState(null);
 
   return (
@@ -107,7 +117,7 @@ export default function Portfolio() {
         </div>
 
         {/* See More CTA */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -121,7 +131,7 @@ export default function Portfolio() {
             See More Projects
             <span className="absolute left-1/2 -bottom-1 w-0 h-[2px] bg-yellow-400 transition-all group-hover:w-full group-hover:left-0" />
           </a>
-        </motion.div>
+        </motion.div> */}
 
         {/* Lottie Animation */}
         <div className="mt-32">
@@ -147,8 +157,6 @@ export default function Portfolio() {
         </div>
       </div>
 
-      
-
       {/* Modal Preview (Optional) */}
       {modalData && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center">
@@ -169,7 +177,8 @@ export default function Portfolio() {
           </div>
         </div>
       )}
-       
     </section>
   );
-}
+};
+
+export default Portfolio;

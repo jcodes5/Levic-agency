@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/levic2.png";
 
 
 export default function Navbar() {
@@ -26,12 +27,11 @@ export default function Navbar() {
   { name: "Contact", to: "/contact" },
 ];
 
-  // const Logo =[
-  //   {
-  //     title: "Logo",
-  //     image: "/assets/Levic.jpg",
-  //   }
-  // ]
+  const navLogo = {
+  title: "Logo",
+  image: logo,
+};
+
 
 
   // Scroll shadow effect
@@ -82,8 +82,11 @@ export default function Navbar() {
             className="text-3xl font-extrabold text-yellow-600 dark:text-yellow-400 tracking-tight"
             aria-label="Levic Home"
           >
-            <img src="/assets/Levic.jpg" alt="Levic logo" className="h-10 w-auto" />
-"
+            <img 
+               src={navLogo.image} 
+               alt={navLogo.title} 
+               className="h-33 w-33" 
+            />
             
             {/* Levic<span className="text-gray-900 dark:text-white">.</span> */}
           </Link>
@@ -108,13 +111,13 @@ export default function Navbar() {
 
           {/* Desktop Right */}
           <div className="hidden md:flex items-center pt-5 space-x-4">
-            <button
+            {/* <button
               onClick={() => setIsDark(!isDark)}
               className="text-gray-700 dark:text-gray-300 hover:text-yellow-600 dark:hover:text-yellow-400 transition"
               aria-label="Toggle Dark Mode"
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
+            </button> */}
             <Link
               href="/contact"
               className="px-5 py-2 rounded-full bg-yellow-600 text-white hover:bg-yellow-700 transition text-sm font-medium shadow-md"
@@ -125,13 +128,13 @@ export default function Navbar() {
 
           {/* Mobile buttons */}
           <div className="md:hidden flex items-center space-x-2">
-            <button
+            {/* <button
               onClick={() => setIsDark(!isDark)}
               className="text-gray-800 dark:text-white"
               aria-label="Toggle Dark Mode"
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
+            </button> */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-800 dark:text-white"
