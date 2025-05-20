@@ -28,7 +28,7 @@ const projects = [
   },
   {
     title: "Logo design",
-    image: kesug,
+    image: scentivityy,
     description: "Creative portfolio for agency visibility and reach.",
   },
   {
