@@ -126,6 +126,7 @@ export default function About() {
           {[
             {
               title: "Our Vision",
+              
               icon: <Rocket className="w-6 h-6 text-yellow-500" />,
               content: "To be the go-to digital partner for African and global brands seeking to grow, thrive, and lead in the digital era."
             },
@@ -146,7 +147,7 @@ export default function About() {
             >
               <div className="flex items-center gap-3 mb-4">
                 {card.icon}
-                <h3 className="text-xl font-semibold">{card.title}</h3>
+                <h3 className="text-xl text-black font-semibold">{card.title}</h3>
               </div>
               <p className="text-sm text-gray-700">{card.content}</p>
             </motion.article>
