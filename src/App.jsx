@@ -9,7 +9,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ServicePage from "./pages/ServicePage";
 import Contact from "./components/Contact";
-import Portfolio from "./components/Portfolio";
+import HappyClients from "./components/Portfolio";
 
 // Create a wrapper component that tracks location changes and handles preloader
 function AppContent() {
@@ -39,7 +39,7 @@ function AppContent() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/services" element={<ServicePage />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/portfolio" element={<HappyClients />} />
             </Routes>
           </main>
           <Footer />
