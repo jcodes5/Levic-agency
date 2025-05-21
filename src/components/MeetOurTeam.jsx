@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 
@@ -86,9 +86,15 @@ const teamMembers = [
 ];
 
 export default function MeetOurTeam() {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleOverlay = (idx) => {
+    // Toggle logic: if already active, close it
+    setActiveIndex(activeIndex === idx ? null : idx);
+  };
   return (
     <section className="relative bg-black text-white py-28 px-6 sm:px-12 overflow-hidden">
-      {/* Glowing blur elements */}
+      {/* Glowing circles */}
       <div className="absolute top-[-80px] left-[-80px] w-[300px] h-[300px] bg-yellow-400 opacity-20 rounded-full blur-3xl z-0" />
       <div className="absolute bottom-[-100px] right-[-100px] w-[300px] h-[300px] bg-yellow-400 opacity-20 rounded-full blur-3xl z-0" />
 
@@ -107,56 +113,49 @@ export default function MeetOurTeam() {
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {teamMembers.map((member, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-white/10 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-xl hover:shadow-yellow-500/30 transition-all text-center group relative overflow-hidden"
-            >
-              <img
-                src={member.img}
-                alt={member.name}
-                className="w-24 h-24 mx-auto rounded-full object-cover border-4 border-yellow-500 mb-4 transition-transform duration-300 group-hover:scale-105"
-              />
-              <h4 className="text-lg font-semibold text-white">{member.name}</h4>
-              <p className="text-sm text-gray-300">{member.role}</p>
+          {teamMembers.map((member, idx) => {
+            const isActive = activeIndex === idx;
 
-              {/* Social Icons on Hover */}
-              <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl p-4">
-                <h4 className="text-lg font-semibold text-white mb-2">{member.name}</h4>
-                <p className="text-sm text-gray-400 mb-4">{member.role}</p>
-                <div className="flex gap-4">
-  <a
-    href={member.socials.linkedin}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-yellow-400 hover:text-yellow-300 transition transform hover:scale-125 duration-300"
-  >
-    <FaLinkedin size={22} />
-  </a>
-  <a
-    href={member.socials.twitter}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-yellow-400 hover:text-yellow-300 transition transform hover:scale-125 duration-300"
-  >
-    <FaTwitter size={22} />
-  </a>
-  <a
-    href={member.socials.github}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-yellow-400 hover:text-yellow-300 transition transform hover:scale-125 duration-300"
-  >
-    <FaGithub size={22} />
-  </a>
-</div>
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="bg-white/10 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-xl hover:shadow-yellow-500/30 transition-all text-center group relative overflow-hidden"
+                onClick={() => toggleOverlay(idx)}
+              >
+                <img
+                  src={member.img}
+                  alt={member.name}
+                  className="w-24 h-24 mx-auto rounded-full object-cover border-4 border-yellow-500 mb-4 transition-transform duration-300 group-hover:scale-105"
+                />
+                <h4 className="text-lg font-semibold text-white">{member.name}</h4>
+                <p className="text-sm text-gray-300">{member.role}</p>
 
-              </div>
-            </motion.div>
-          ))}
+                {/* Overlay */}
+                <div
+                  className={`absolute inset-0 bg-black/80 flex flex-col items-center justify-center rounded-2xl p-4 transition-opacity duration-300
+                    ${isActive ? "opacity-100 z-20" : "opacity-0 z-0"}
+                    sm:opacity-0 sm:group-hover:opacity-100 sm:z-20`}
+                >
+                  <h4 className="text-lg font-semibold text-white mb-2">{member.name}</h4>
+                  <p className="text-sm text-gray-400 mb-4">{member.role}</p>
+                  <div className="flex gap-4">
+                    <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300 transition transform hover:scale-125 duration-300">
+                      <FaLinkedin size={22} />
+                    </a>
+                    <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300 transition transform hover:scale-125 duration-300">
+                      <FaTwitter size={22} />
+                    </a>
+                    <a href={member.socials.github} target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300 transition transform hover:scale-125 duration-300">
+                      <FaGithub size={22} />
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
