@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/levic2.png";
+import logo from "../assets/Levic2.png";
 
 
 export default function Navbar() {
