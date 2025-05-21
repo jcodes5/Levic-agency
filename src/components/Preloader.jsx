@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import logo from "../assets/levic2.png"; // replace with your logo path
+import logo from "../assets/Levic2.png"; 
 
 export default function Preloader({ onFinish }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       onFinish();
-    }, 10000); // simulate 3 seconds loading
+    }, 10000); // simulate 10 seconds loading
 
     return () => clearTimeout(timer);
   }, [onFinish]);
