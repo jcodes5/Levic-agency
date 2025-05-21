@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 
+import Levi from "../assets/Levi-creative-director.jpg";
+import Esther from "../assets/Esther-coo.jpg";
+import Victoria from "../assets/Victoria-Admin.jpg";
+import Anthony from "../assets/Anthony-wordpress.jpg";
+import Rosemary from "../assets/Rosemary-Financial.jpg";
+import Jcodes from "../assets/me.jpeg";
+
 const teamMembers = [
   {
-    name: "Jane Doe",
+    name: "Promise Levi",
     role: "Creative Director",
-    img: "https://randomuser.me/api/portraits/women/44.jpg",
+    img: Levi,
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -14,9 +21,9 @@ const teamMembers = [
     }
   },
   {
-    name: "John Smith",
-    role: "Lead Developer",
-    img: "https://randomuser.me/api/portraits/men/32.jpg",
+    name: "Esther Richard",
+    role: "Cheif Operating Officer",
+    img: Esther,
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -24,9 +31,9 @@ const teamMembers = [
     }
   },
   {
-    name: "Grace Okoro",
-    role: "UI/UX Designer",
-    img: "https://randomuser.me/api/portraits/women/65.jpg",
+    name: "Victoria Samuel",
+    role: "Admin/Executive secretary",
+    img: Victoria,
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -34,9 +41,9 @@ const teamMembers = [
     }
   },
   {
-    name: "Emeka Johnson",
-    role: "Digital Strategist",
-    img: "https://randomuser.me/api/portraits/men/68.jpg",
+    name: "Rosemary Ojochenemi L.",
+    role: "Financial Secretary",
+    img: Rosemary,
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -44,9 +51,9 @@ const teamMembers = [
     }
   },
   {
-    name: "Fatima Sule",
-    role: "Project Manager",
-    img: "https://randomuser.me/api/portraits/women/51.jpg",
+    name: "Anthony Chigbo",
+    role: "WordPress Developer",
+    img: Anthony,
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -54,35 +61,35 @@ const teamMembers = [
     }
   },
   {
-    name: "David Ike",
-    role: "Mobile Developer",
-    img: "https://randomuser.me/api/portraits/men/73.jpg",
+    name: "Jatto Overcomer",
+    role: "Fullstack Developer",
+    img: Jcodes,
     socials: {
       linkedin: "#",
       twitter: "#",
       github: "#"
     }
   },
-  {
-    name: "Amara Benson",
-    role: "Product Designer",
-    img: "https://randomuser.me/api/portraits/women/60.jpg",
-    socials: {
-      linkedin: "#",
-      twitter: "#",
-      github: "#"
-    }
-  },
-  {
-    name: "Kelvin Uche",
-    role: "Data Analyst",
-    img: "https://randomuser.me/api/portraits/men/40.jpg",
-    socials: {
-      linkedin: "#",
-      twitter: "#",
-      github: "#"
-    }
-  }
+  // {
+  //   name: "Amara Benson",
+  //   role: "Product Designer",
+  //   img: "https://randomuser.me/api/portraits/women/60.jpg",
+  //   socials: {
+  //     linkedin: "#",
+  //     twitter: "#",
+  //     github: "#"
+  //   }
+  // },
+  // {
+  //   name: "Kelvin Uche",
+  //   role: "Data Analyst",
+  //   img: "https://randomuser.me/api/portraits/men/40.jpg",
+  //   socials: {
+  //     linkedin: "#",
+  //     twitter: "#",
+  //     github: "#"
+  //   }
+  // }
 ];
 
 export default function MeetOurTeam() {
